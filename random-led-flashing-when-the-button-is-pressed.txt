@@ -1,0 +1,48 @@
+int sayac = 0;
+int durum = 0;
+int num =0;
+void setup() {
+  // put your setup code here, to run once:
+pinMode(GPKEY, INPUT);
+pinMode(LEDG,OUTPUT);
+pinMode(LEDB,OUTPUT);
+pinMode(LEDR,OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+if(digitalRead(GPKEY) == 0) {
+  sayac = sayac +1; 
+  }
+  else{sayac = 0;}
+
+if(sayac == 1){ 
+  if(durum == 0 ){
+
+    num = rand() % 3 + 1;
+if(num == 1){
+      digitalWrite(LEDG,HIGH);
+    digitalWrite(LEDR,LOW);
+    digitalWrite(LEDB,LOW);
+}
+if(num == 2){
+      digitalWrite(LEDG,LOW);
+    digitalWrite(LEDR,HIGH);
+    digitalWrite(LEDB,LOW);
+}
+if(num == 3){
+        digitalWrite(LEDG,LOW);
+    digitalWrite(LEDR,LOW);
+    digitalWrite(LEDB,HIGH);
+}
+
+    durum = 1; 
+ 
+    }
+  else{
+      durum = 0; digitalWrite(LEDG, LOW);
+    digitalWrite(LEDR,LOW);
+    digitalWrite(LEDB,LOW);
+      }
+}
+}
